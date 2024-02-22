@@ -25,8 +25,6 @@ class DillyServiceTest {
 
     @Autowired
     private DillyService dillyService;
-    @Autowired
-    private Apis apis;
 
     @Test
     @DisplayName("Doit récupérer une commande en moins de 2 secondes")
