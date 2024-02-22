@@ -1,31 +1,21 @@
 package fr.concurrency.training.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import fr.concurrency.training.model.Beer;
 import fr.concurrency.training.model.Preferences;
 import fr.concurrency.training.model.Vodka;
+import lombok.RequiredArgsConstructor;
 
 /**
  * @author gfourny
  */
 @Service
-public class Api {
+@RequiredArgsConstructor
+public class Apis {
 
     private final RestClient restClient;
-
-    @Value("${wiremock.server.port}")
-    int port;
-    @Value("${baseUrl}")
-    String baseUrl;
-
-    public Api() {
-        this.restClient = RestClient.builder()
-                .baseUrl(baseUrl + port)
-                .build();
-    }
 
     public Preferences fetchPreferences() {
         return restClient.get().uri("/preferences").retrieve().body(Preferences.class);
