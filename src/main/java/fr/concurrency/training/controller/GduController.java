@@ -18,13 +18,13 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/gdu")
 @RequiredArgsConstructor
 public class GduController {
-    
+
     private final GduService gduService;
-    
+
     @GetMapping("/utilisateurs")
     public ResponseEntity<List<UtilisateurRefUtAppWithFonction>> getUsers() {
         return ResponseEntity.ok(gduService.retrieveUsersWithFonctions());
     }
-    
+
     //TODO implémenter un autre endpoint non bloquant
 }

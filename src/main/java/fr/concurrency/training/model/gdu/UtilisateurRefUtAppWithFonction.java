@@ -2,6 +2,8 @@ package fr.concurrency.training.model.gdu;
 
 import java.util.List;
 
+import lombok.Builder;
+
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -9,6 +11,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author gfourny
  */
+@Builder
 public record UtilisateurRefUtAppWithFonction(
         UtilisateurRefUtApp utilisateurRefUtApp,
         List<Fonction> fonctions

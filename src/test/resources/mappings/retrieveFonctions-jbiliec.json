@@ -1,0 +1,108 @@
+{
+  "mappings": [
+    {
+      "name": "Récupération des fonctions pour l'utilisateur jbiliec",
+      "request": {
+        "method": "GET",
+        "url": "/refutilisateurappli/utilisateurs/U2021-12-27-12.02.41.029853/fonctions?codeApplication=BO_Monetique"
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": [
+          {
+            "typesOrganisation": [
+              "string"
+            ],
+            "dn": "string",
+            "cn": "A_BO_Monetique$SF_BOMonetique_profil_Magasin",
+            "typeFonction": "SPECIFIQUE",
+            "code": "string",
+            "libelle": "Coop Atlantique",
+            "application": {
+              "libelleUniSvers": "string",
+              "descriptionUniSvers": "string",
+              "typesOrganisation": [
+                "string"
+              ],
+              "cnsOrganisations": [
+                "string"
+              ],
+              "numOrdreAffichage": 0,
+              "dn": "string",
+              "cn": "string",
+              "code": "o2hzPTNrOWF1tsBW1T6sYft8wafgpy",
+              "libelle": "string",
+              "regions": [
+                "string"
+              ],
+              "fonctionsExclusives": true,
+              "logo": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "fonctionParente": null,
+            "libelleUniSvers": "string",
+            "descriptionUniSvers": "string",
+            "cnsOrganisations": [
+              "string"
+            ],
+            "numOrdreAffichage": 0,
+            "logo": "string",
+            "tags": [
+              "string"
+            ]
+          },
+          {
+            "typesOrganisation": [
+              "string"
+            ],
+            "dn": "string",
+            "cn": "A_BO_Monetique$SF_BOMonetique_acces_Magasin",
+            "typeFonction": "SPECIFIQUE",
+            "code": "string",
+            "libelle": "magasin",
+            "application": {
+              "libelleUniSvers": "string",
+              "descriptionUniSvers": "string",
+              "typesOrganisation": [
+                "string"
+              ],
+              "cnsOrganisations": [
+                "string"
+              ],
+              "numOrdreAffichage": 0,
+              "dn": "string",
+              "cn": "string",
+              "code": "o2hzPTNrOWF1tsBW1T6sYft8wafgpy",
+              "libelle": "string",
+              "regions": [
+                "string"
+              ],
+              "fonctionsExclusives": true,
+              "logo": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "fonctionParente": null,
+            "libelleUniSvers": "string",
+            "descriptionUniSvers": "string",
+            "cnsOrganisations": [
+              "string"
+            ],
+            "numOrdreAffichage": 0,
+            "logo": "string",
+            "tags": [
+              "string"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

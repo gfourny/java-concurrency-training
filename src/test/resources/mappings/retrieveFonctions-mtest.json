@@ -1,0 +1,108 @@
+{
+  "mappings": [
+    {
+      "name": "Récupération des fonctions pour l'utilisateur mtest",
+      "request": {
+        "method": "GET",
+        "url": "/refutilisateurappli/utilisateurs/U2007-01-10-11.57.57.471000/fonctions?codeApplication=BO_Monetique"
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": [
+          {
+            "typesOrganisation": [
+              "string"
+            ],
+            "dn": "string",
+            "cn": "A_BO_Monetique$SF_BOMonetique_acces_CNP",
+            "typeFonction": "SPECIFIQUE",
+            "code": "string",
+            "libelle": "CNP",
+            "application": {
+              "libelleUniSvers": "string",
+              "descriptionUniSvers": "string",
+              "typesOrganisation": [
+                "string"
+              ],
+              "cnsOrganisations": [
+                "string"
+              ],
+              "numOrdreAffichage": 0,
+              "dn": "string",
+              "cn": "string",
+              "code": "o2hzPTNrOWF1tsBW1T6sYft8wafgpy",
+              "libelle": "string",
+              "regions": [
+                "string"
+              ],
+              "fonctionsExclusives": true,
+              "logo": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "fonctionParente": null,
+            "libelleUniSvers": "string",
+            "descriptionUniSvers": "string",
+            "cnsOrganisations": [
+              "string"
+            ],
+            "numOrdreAffichage": 0,
+            "logo": "string",
+            "tags": [
+              "string"
+            ]
+          },
+          {
+            "typesOrganisation": [
+              "string"
+            ],
+            "dn": "string",
+            "cn": "A_BO_Monetique$SF_BOMonetique_profil_metier",
+            "typeFonction": "SPECIFIQUE",
+            "code": "string",
+            "libelle": "metier",
+            "application": {
+              "libelleUniSvers": "string",
+              "descriptionUniSvers": "string",
+              "typesOrganisation": [
+                "string"
+              ],
+              "cnsOrganisations": [
+                "string"
+              ],
+              "numOrdreAffichage": 0,
+              "dn": "string",
+              "cn": "string",
+              "code": "o2hzPTNrOWF1tsBW1T6sYft8wafgpy",
+              "libelle": "string",
+              "regions": [
+                "string"
+              ],
+              "fonctionsExclusives": true,
+              "logo": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "fonctionParente": null,
+            "libelleUniSvers": "string",
+            "descriptionUniSvers": "string",
+            "cnsOrganisations": [
+              "string"
+            ],
+            "numOrdreAffichage": 0,
+            "logo": "string",
+            "tags": [
+              "string"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

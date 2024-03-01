@@ -1,0 +1,136 @@
+{
+  "mappings" : [
+    {
+      "name" : "Récupération de la liste des utilisateurs",
+      "request": {
+        "method": "GET",
+        "url": "/refutilisateurappli/utilisateurs"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": [
+          {
+            "dn": "uid=U2007-01-10-11.57.57.471000,ou=Utilisateurs,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "mtest",
+            "login": "mtest",
+            "uid": "U2007-01-10-11.57.57.471000",
+            "suId": "$mtest$ $03$",
+            "nom": "Monsieur",
+            "prenom": "Test",
+            "commentaire": "string",
+            "email": "monsieur.test@systeme-u.fr",
+            "dateDerniereConnexion": "2018-06-27T09:14:59+02:00",
+            "dateDesactivation": "2021-06-11T17:12:15+02:00",
+            "desactive": true,
+            "matricule": "4218",
+            "associe": false,
+            "profilDirection": false,
+            "collaborateurMagasin": false,
+            "collaborateurPermanent": true,
+            "collaborateurPartenaire": false,
+            "loginIBMi": "MTEST",
+            "loginGithub": "GithubLogin",
+            "loginUnique": "mtest.suo",
+            "cnOrganisationConnexion": "C03",
+            "cnService": "C03$Pas_de_service",
+            "fax": "string",
+            "telephoneFixe": "string",
+            "telephoneMobile": "string",
+            "listeOrganisations": [
+              {
+                "type": "centrale",
+                "dn": "cn=C03,ou=Organisations,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+                "cn": "C03",
+                "commentaire": "Centrale 03",
+                "code": "03",
+                "libelle": "Systeme U Ouest",
+                "libelleOrganisation": "Systeme U Ouest"
+              }
+            ],
+            "changePasswordMobile": false,
+            "libelleFournisseur": "string",
+            "codeFournisseur": "string"
+          },
+          {
+            "dn": "uid=U2021-12-27-12.02.41.029853,ou=Utilisateurs,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "jbiliec",
+            "login": "jbiliec",
+            "uid": "U2021-12-27-12.02.41.029853",
+            "suId": "$jbiliec$ $03$",
+            "nom": "Biliec",
+            "prenom": "Jocelyn",
+            "loginUnique": "jbiliec.suo",
+            "cnOrganisationConnexion": "C03",
+            "cnService": "C03$Pas_de_service",
+            "listeOrganisations": [
+              {
+                "type": "centrale",
+                "codeMagasin": "39229",
+                "dn": "cn=C03,ou=Organisations,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+                "cn": "C03",
+                "commentaire": "Centrale 03",
+                "code": "03",
+                "libelle": "Systeme U Ouest",
+                "libelleOrganisation": "Systeme U Ouest"
+              }
+            ],
+            "changePasswordMobile": false,
+            "associe": false,
+            "profilDirection": false,
+            "collaborateurPermanent": true,
+            "collaborateurPartenaire": false,
+            "collaborateurMagasin": false
+          },
+          {
+            "dn": "uid=U2023-06-21-09.45.33.500696,ou=Utilisateurs,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "cligniac",
+            "login": "cligniac",
+            "uid": "U2024-06-21-09.45.33.500696",
+            "suId": "$aminier$39229$ $",
+            "nom": "ligniac",
+            "prenom": "cyrille",
+            "email": "cyrille.lignac@systeme-u.fr",
+            "dateDerniereConnexion": "2023-11-29T15:22:46+01:00",
+            "loginUnique": "cyrille.39229",
+            "cnOrganisationConnexion": "M39229",
+            "listeOrganisations": [{
+              "type": "magasin",
+              "dn": "cn=M39229,ou=Organisations,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "M39229",
+              "commentaire": "Magasin Test Carquefou",
+              "codeLieuFonction": "39229",
+              "codeMagasin": "39229",
+              "raisonSociale": "Magasin test Carquefou",
+              "commune": "CARQUEFOU",
+              "codeDepartement": "44",
+              "codeGep": "44N",
+              "codeEnseigne": "SU",
+              "surface": "2000",
+              "email": "ouest_pupitreurs@systeme-u.fr",
+              "codeCooperativeAssociee": "1",
+              "centrale": {
+                "type": "centrale",
+                "dn": "cn=C03,ou=Organisations,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+                "cn": "C03",
+                "commentaire": "Centrale 03",
+                "code": "03",
+                "libelle": "Systeme U Ouest",
+                "libelleOrganisation": "Systeme U Ouest"
+              },
+              "libelleOrganisation": "Magasin test Carquefou"
+            }
+            ],
+            "changePasswordMobile": true,
+            "collaborateurPartenaire": false,
+            "collaborateurMagasin": true,
+            "associe": true,
+            "profilDirection": false,
+            "collaborateurPermanent": false
+          }
+        ]
+      }
+    }]
+}

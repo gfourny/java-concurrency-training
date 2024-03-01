@@ -1,0 +1,163 @@
+{
+  "mappings": [
+    {
+      "name": "Récupération des fonctions pour l'utilisateur aminier",
+      "request": {
+        "method": "GET",
+        "url": "/refutilisateurappli/utilisateurs/U2024-06-21-09.45.33.500696/fonctions?codeApplication=BO_Monetique"
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": [
+          {
+            "typesOrganisation": [
+              "suCentrale",
+              "suMagasin"
+            ],
+            "dn": "cn=A_BO_Monetique$SF_BOMonetique_profil_Magasin,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "A_BO_Monetique$SF_BOMonetique_profil_Magasin",
+            "typeFonction": "GENERIQUE",
+            "code": "BOMonetique_profil_Magasin",
+            "libelle": "magasin",
+            "application": {
+              "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique",
+              "code": "BO_Monetique",
+              "libelle": "BO Monetique e-Portal",
+              "regions": [],
+              "fonctionsExclusives": false
+            },
+            "fonctionParente": {
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique$F_Profils_E-Portal,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique$F_Profils_E-Portal",
+              "typeFonction": "GENERIQUE",
+              "code": "Profils_E-Portal",
+              "libelle": "Profils e-Portal",
+              "application": {
+                "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+                "typesOrganisation": [
+                  "suCentrale",
+                  "suMagasin"
+                ],
+                "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+                "cn": "A_BO_Monetique",
+                "code": "BO_Monetique",
+                "libelle": "BO Monetique e-Portal",
+                "regions": [],
+                "fonctionsExclusives": false
+              }
+            }
+          },
+          {
+            "typesOrganisation": [
+              "suCentrale",
+              "suMagasin"
+            ],
+            "dn": "cn=A_BO_Monetique$F_Niveau_acces,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "A_BO_Monetique$F_Niveau_acces",
+            "typeFonction": "GENERIQUE",
+            "code": "Niveau_acces",
+            "libelle": "Niveau d'accès à e-Portal",
+            "application": {
+              "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique",
+              "code": "BO_Monetique",
+              "libelle": "BO Monetique e-Portal",
+              "regions": [],
+              "fonctionsExclusives": false
+            }
+          },
+          {
+            "typesOrganisation": [
+              "suCentrale",
+              "suMagasin"
+            ],
+            "dn": "cn=A_BO_Monetique$F_Profils_E-Portal,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "A_BO_Monetique$F_Profils_E-Portal",
+            "typeFonction": "GENERIQUE",
+            "code": "Profils_E-Portal",
+            "libelle": "Profils e-Portal",
+            "application": {
+              "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique",
+              "code": "BO_Monetique",
+              "libelle": "BO Monetique e-Portal",
+              "regions": [],
+              "fonctionsExclusives": false
+            }
+          },
+          {
+            "typesOrganisation": [
+              "suMagasin"
+            ],
+            "dn": "cn=A_BO_Monetique$SF_BOMonetique_acces_Magasin,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+            "cn": "A_BO_Monetique$SF_BOMonetique_acces_Magasin",
+            "typeFonction": "GENERIQUE",
+            "code": "BOMonetique_acces_Magasin",
+            "libelle": "utilisateur magasin",
+            "application": {
+              "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique",
+              "code": "BO_Monetique",
+              "libelle": "BO Monetique e-Portal",
+              "regions": [],
+              "fonctionsExclusives": false
+            },
+            "fonctionParente": {
+              "typesOrganisation": [
+                "suCentrale",
+                "suMagasin"
+              ],
+              "dn": "cn=A_BO_Monetique$F_Niveau_acces,cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+              "cn": "A_BO_Monetique$F_Niveau_acces",
+              "typeFonction": "GENERIQUE",
+              "code": "Niveau_acces",
+              "libelle": "Niveau d'accès à e-Portal",
+              "application": {
+                "descriptionUniSvers": "Accès aux fonctions du BO Monétique (e Portal)",
+                "typesOrganisation": [
+                  "suCentrale",
+                  "suMagasin"
+                ],
+                "dn": "cn=A_BO_Monetique,ou=Applications,ou=Groupes,dc=AnnuaireIntranet,dc=SystemeU",
+                "cn": "A_BO_Monetique",
+                "code": "BO_Monetique",
+                "libelle": "BO Monetique e-Portal",
+                "regions": [],
+                "fonctionsExclusives": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
