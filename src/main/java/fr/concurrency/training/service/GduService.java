@@ -9,6 +9,7 @@ import fr.concurrency.training.model.gdu.UtilisateurRefUtApp;
 import fr.concurrency.training.model.gdu.UtilisateurRefUtAppWithFonction;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 /**
  * @author gfourny
@@ -22,7 +23,7 @@ public class GduService {
 
     public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctions() {
         log.info("current thread: {}", Thread.currentThread());
-        var futures = apis.fetchUsers().stream()
+        val futures = apis.fetchUsers().stream()
                 .map(u -> CompletableFuture.supplyAsync(() -> getUtilisateurRefUtAppWithFonction(u)))
                 .toList();
 
@@ -33,7 +34,7 @@ public class GduService {
 
     private UtilisateurRefUtAppWithFonction getUtilisateurRefUtAppWithFonction(UtilisateurRefUtApp utilisateurRefUtApp) {
         log.info("récupération des fonctions pour l'utilisateur {}", utilisateurRefUtApp.nom());
-        var fonctions = apis.fetchFonctionForUser(utilisateurRefUtApp.uid());
+        val fonctions = apis.fetchFonctionForUser(utilisateurRefUtApp.uid());
         return UtilisateurRefUtAppWithFonction.builder()
                 .utilisateurRefUtApp(utilisateurRefUtApp)
                 .fonctions(fonctions)

@@ -25,9 +25,9 @@ public class DillyService {
     private final Apis apis;
 
     public Dilly command() {
-        var preferences = apis.fetchPreferences();
-        var beer = apis.fetchBeer(preferences);
-        var vodka = apis.fetchVodka();
+        val preferences = apis.fetchPreferences();
+        val beer = apis.fetchBeer(preferences);
+        val vodka = apis.fetchVodka();
 
         return new Dilly(beer, vodka);
     }
@@ -52,11 +52,11 @@ public class DillyService {
 
     public Dilly commandWithVirtualThreadExecutor() {
         //TODO A faire en démonstration
-        try (var executors = Executors.newVirtualThreadPerTaskExecutor()) {
+        try (val executors = Executors.newVirtualThreadPerTaskExecutor()) {
 
-            var preferencesFuture = executors.submit(apis::fetchPreferences);
-            var beerFuture = executors.submit(() -> apis.fetchBeer(preferencesFuture.get()));
-            var vodkaFuture = executors.submit(apis::fetchVodka);
+            val preferencesFuture = executors.submit(apis::fetchPreferences);
+            val beerFuture = executors.submit(() -> apis.fetchBeer(preferencesFuture.get()));
+            val vodkaFuture = executors.submit(apis::fetchVodka);
 
             return new Dilly(beerFuture.get(), vodkaFuture.get());
         } catch (ExecutionException | InterruptedException e) {
@@ -73,10 +73,10 @@ public class DillyService {
             preferencesFuture = executorService.submit(apis::fetchPreferences);
         }
 
-        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+        try (val scope = new StructuredTaskScope.ShutdownOnFailure()) {
 
-            var beerTask = scope.fork(() -> apis.fetchBeer(preferencesFuture.get()));
-            var vodkaTask = scope.fork(apis::fetchVodka);
+            val beerTask = scope.fork(() -> apis.fetchBeer(preferencesFuture.get()));
+            val vodkaTask = scope.fork(apis::fetchVodka);
 
             scope.join().throwIfFailed();
 
@@ -88,9 +88,9 @@ public class DillyService {
 
     public Dilly commandWithVirtualThreadInProperty() {
         //TODO A faire en démonstration
-        var preferences = apis.fetchPreferences();
-        var beer = apis.fetchBeer(preferences);
-        var vodka = apis.fetchVodka();
+        val preferences = apis.fetchPreferences();
+        val beer = apis.fetchBeer(preferences);
+        val vodka = apis.fetchVodka();
 
         return new Dilly(beer, vodka);
     }
