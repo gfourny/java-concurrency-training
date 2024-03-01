@@ -8,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 import fr.concurrency.training.config.WiremockInitializer;
 import fr.concurrency.training.model.gdu.UtilisateurRefUtApp;
-import lombok.val;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,13 +24,13 @@ class ApisTest {
 
     @Test
     void should_return_list_of_users() {
-        val utilisateurRefUtApps = apis.fetchUsers();
+        var utilisateurRefUtApps = apis.fetchUsers();
         assertThat(utilisateurRefUtApps).isNotNull().isNotEmpty();
     }
 
     @Test
     void should_return_list_of_users_with_their_fonctions() {
-        val utilisateurRefUtAppWithFonctions = apis.fetchUsers().stream()
+        var utilisateurRefUtAppWithFonctions = apis.fetchUsers().stream()
                 .map(UtilisateurRefUtApp::uid)
                 .map(apis::fetchFonctionForUser)
                 .toList();

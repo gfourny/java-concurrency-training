@@ -31,7 +31,7 @@ class DillyServiceTest {
     void should_return_dilly_less_than_two_seconds() {
         await().atMost(Duration.ofMillis(1700)).until(() ->
                 {
-                    Dilly dilly = dillyService.command();
+                    Dilly dilly = dillyService.commandWithVirtualThreadInProperty();
                     return !isNull(dilly) && !isNull(dilly.beer()) && !isNull(dilly.vodka());
                 }
         );

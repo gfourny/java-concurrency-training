@@ -1,1 +1,6 @@
 baseUrl: http://localhost:${wiremock.server.port}
+
+#spring:
+#  threads:
+#    virtual:
+#      enabled: true
