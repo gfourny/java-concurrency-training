@@ -10,7 +10,11 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 public class StartWiremock {
 
     public static void main(String[] args) {
-        WireMockServer wm = new WireMockServer(options().port(9999));
+        WireMockServer wm = new WireMockServer(options()
+                .port(9999)
+                .asynchronousResponseEnabled(true)
+                .asynchronousResponseThreads(200)
+        );
         wm.start();
     }
 }

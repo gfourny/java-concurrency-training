@@ -1,15 +1,14 @@
 package fr.concurrency.training.controller;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
+import fr.concurrency.training.model.gdu.UtilisateurRefUtAppWithFonction;
+import fr.concurrency.training.service.GduService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.concurrency.training.model.gdu.UtilisateurRefUtAppWithFonction;
-import fr.concurrency.training.service.GduService;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
 
 /**
  * @author gfourny
@@ -17,13 +16,14 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/gdu")
 @RequiredArgsConstructor
+@Slf4j
 public class GduController {
 
     private final GduService gduService;
 
     @GetMapping("/utilisateurs")
-    public ResponseEntity<List<UtilisateurRefUtAppWithFonction>> getUsers() {
-        return ResponseEntity.ok(gduService.retrieveUsersWithFonctions());
+    public List<UtilisateurRefUtAppWithFonction> getUsers() {
+        return gduService.retrieveUsersWithFonctions();
     }
 
     //TODO implémenter un autre endpoint non bloquant

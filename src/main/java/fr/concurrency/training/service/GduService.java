@@ -21,6 +21,7 @@ public class GduService {
     private final Apis apis;
 
     public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctions() {
+        log.info("run on {}", Thread.currentThread());
         val utilisateurRefUtApps = apis.fetchUsers();
 
         return utilisateurRefUtApps.stream()

@@ -1,1 +1,5 @@
 baseUrl: http://localhost:9999
+server:
+  tomcat:
+    threads:
+      max: 1
