@@ -3,7 +3,6 @@ package fr.concurrency.training.controller;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,13 +22,13 @@ public class GduController {
     private final GduService gduService;
 
     @GetMapping("/utilisateurs")
-    public ResponseEntity<List<UtilisateurRefUtAppWithFonction>> getUsers() {
-        return ResponseEntity.ok(gduService.retrieveUsersWithFonctions());
+    public List<UtilisateurRefUtAppWithFonction> getUsers() {
+        return gduService.retrieveUsersWithFonctions();
     }
 
     //TODO implémenter un autre endpoint non bloquant
     @GetMapping("/utilisateurs/non-bloquant")
-    public CompletableFuture<ResponseEntity<List<UtilisateurRefUtAppWithFonction>>> getUsersNonBloquant() {
-        return CompletableFuture.supplyAsync(() -> ResponseEntity.ok(gduService.retrieveUsersWithFonctions()));
+    public CompletableFuture<List<UtilisateurRefUtAppWithFonction>> getUsersNonBloquant() {
+        return CompletableFuture.supplyAsync(gduService::retrieveUsersWithFonctions);
     }
 }
