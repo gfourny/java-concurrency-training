@@ -21,9 +21,13 @@ public class GduService {
 
     private final Apis apis;
 
-    //Solution la plus simple, le client attend une réponse donc on parallélise les appels de récupération des fonctions
-    //On bloque le thread http request dans le cas de l'appel bloquant
-    //On bloque un des thread du Common ForkJoinPool dans le cas de l'appel non-bloquant
+    /**
+     * Solution la plus simple, le client attend une réponse donc on parallélise les appels de récupération des fonctions.<br/>
+     * <b>On bloque le thread http request dans le cas de l'appel bloquant</b>.<br/>
+     * <b>On bloque un des threads du Common ForkJoinPool dans le cas de l'appel non-bloquant</b>.
+     *
+     * @return {@link List} d'{@link UtilisateurRefUtAppWithFonction}
+     */
     public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctions() {
         log.info("current thread: {}", Thread.currentThread());
         val futures = apis.fetchUsers().stream()
@@ -35,8 +39,13 @@ public class GduService {
                 .toList();
     }
 
-    //Solution plus avancée, dit "réactive", se rapproche de l'utilisation de Spring WebFlux (Reactor).
-    //Toutes les méthodes sont wrappés dans une Monade, CompletableFuture<> dans notre cas, Mono<> ou Flux<> avec Reactor
+    /**
+     * Solution plus avancée, dit "réactive", se rapproche de l'utilisation de Spring WebFlux (Reactor).<br/>
+     * Toutes les méthodes sont wrappés dans une Monade, CompletableFuture<> dans notre cas, Mono<> ou Flux<> avec Reactor.<br/>
+     * <b>OverEngineering dans notre cas</b>
+     *
+     * @return {@link CompletableFuture}
+     */
     public CompletableFuture<List<UtilisateurRefUtAppWithFonction>> retrieveUsersWithFonctionsOtherSolution() {
         log.info("current thread: {}", Thread.currentThread());
         val futures = apis.fetchUsers().stream()

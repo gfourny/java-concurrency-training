@@ -24,9 +24,13 @@ public class DillyService {
 
     private final Apis apis;
 
-    // Implémentation classique. On effectue les appels les uns après les autres.
-    // L'utilisation du temps CPU n'est pas optimisé --> Chute de performance sur du GKE
-    // Le temps d'exécution = somme du temps de réponse des appels
+    /**
+     * Implémentation classique. On effectue les appels les uns après les autres.<br/>
+     * L'utilisation du temps CPU n'est pas optimisé --> Chute de performance sur du GKE.<br/>
+     * <b>Le temps d'exécution = somme du temps de réponse des appels</b>
+     *
+     * @return {@link Dilly}
+     */
     public Dilly command() {
         val preferences = apis.fetchPreferences();
         val beer = apis.fetchBeer(preferences);
@@ -35,9 +39,13 @@ public class DillyService {
         return new Dilly(beer, vodka);
     }
 
-    // Implémentation optimisée, accessible depuis Java 8
-    // Les appels bloquants qui n'ont pas d'adhérence entre eux sont parallélisés
-    // Le temps d'exécution = temps de réponse d'un appel le plus long
+    /**
+     * Implémentation optimisée, accessible depuis Java 8.<br/>
+     * Les appels bloquants qui n'ont pas d'adhérence entre eux sont <b>parallélisés</b>.<br/>
+     * <b>Le temps d'exécution = temps de réponse d'un appel le plus long</b>
+     *
+     * @return {@link Dilly}
+     */
     public Dilly commandWithCF() {
         return CompletableFuture.supplyAsync(apis::fetchPreferences)
                 .thenApply(apis::fetchBeer)
@@ -45,8 +53,12 @@ public class DillyService {
                 .join();
     }
 
-    // Idem que précédent, mais en utilisant les VirtualThread
-    // L'executorService peut être injecté dans le constructeur (fortement recommandé actuellement lorsque l'on se définit un pool de thread)
+    /**
+     * Idem que précédent, mais en utilisant les VirtualThread.<br/>
+     * L'executorService peut être injecté dans le constructeur (fortement recommandé actuellement lorsque l'on se définit un pool de thread)
+     *
+     * @return {@link Dilly}
+     */
     public Dilly commandWithCFAnExecutorService() {
         try (var executorService = Executors.newVirtualThreadPerTaskExecutor()) {
             return CompletableFuture.supplyAsync(apis::fetchPreferences, executorService)
@@ -56,11 +68,15 @@ public class DillyService {
         }
     }
 
-    // Java 21 !
-    // Effectue exactement le même traitement mais dans un style impératif
-    // API Future mise à jour pour cette occasion (Java 7)
-    // Beaucoup moins de méthode à connaître que l'API CompletableFuture
-    // Ne répondra pas à tous les besoins, mais répond à la majeure partie des cas 
+    /**
+     * <b>Java 21 !</b><br/>
+     * Effectue exactement le même traitement, mais dans un style impératif.<br/>
+     * API Future mise à jour pour cette occasion (Java 7).<br/>
+     * Beaucoup moins de méthode à connaître que l'API CompletableFuture :)<br/>
+     * Ne répondra pas à tous les besoins, mais répond à la majeure partie des cas
+     *
+     * @return {@link Dilly}
+     */
     public Dilly commandWithVirtualThreadExecutor() {
         try (val executors = Executors.newVirtualThreadPerTaskExecutor()) {
 
@@ -74,10 +90,14 @@ public class DillyService {
         }
     }
 
-    // Preview Java 21 et 22
-    // Permet de répondre à des besoins impossibles à traiter avec l'API Future et compliqué avec l'API CompletableFuture
-    // Facilité d'implémentation pour paralléliser et définir des règles de gestion
-    // Possibilité d'étendre facilement StructuredTaskScope
+    /**
+     * <b>Preview Java 21 et 22</b>.<br/>
+     * Permet de répondre à des besoins impossibles à traiter avec l'API Future et compliqué avec l'API CompletableFuture.<br/>
+     * Facilité d'implémentation pour paralléliser et définir des règles de gestion.<br/>
+     * <b>Possibilité d'étendre facilement StructuredTaskScope</b>.
+     *
+     * @return {@link Dilly}
+     */
     public Dilly commandWithStructuredConcurrency() {
         //En preview Java 21 et 22
 
@@ -99,8 +119,12 @@ public class DillyService {
         }
     }
 
-    //Utilise des VirtualThread lors d'appel bloquant mais ne permet pas de paralléliser (ça n'est pas magique non plus)
-    //On continue de bloquer le main thread
+    /**
+     * Utilise des VirtualThread lors d'appel bloquant, <b>mais ne permet pas de paralléliser</b> (ça n'est pas magique non plus).<br/>
+     * <b>On continue de bloquer le main thread</b>
+     *
+     * @return {@link Dilly}
+     */
     public Dilly commandWithVirtualThreadInProperty() {
         val preferences = apis.fetchPreferences();
         val beer = apis.fetchBeer(preferences);
