@@ -27,6 +27,6 @@ class GduServiceTest {
     @Test
     @DisplayName("Doit récupérer la liste des utilisateurs avec leur fonctions de manière concurrente")
     void should_retrieve_users_with_fonction_asynchronously() {
-        await().atMost(Duration.ofSeconds(3)).until(() -> gduService.retrieveUsersWithFonctions().size() == 3);
+        await().atMost(Duration.ofSeconds(3)).until(() -> gduService.retrieveUsersWithFonctionsMoreReadable().size() == 3);
     }
 }
