@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
+		<version>3.2.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.concurrency</groupId>
@@ -15,6 +15,8 @@
 	<description>Atelier de formation de programmation concurrente</description>
 	<properties>
 		<java.version>21</java.version>
+		<wiremock-standalone.version>3.4.1</wiremock-standalone.version>
+		<httpclient5.version>5.3.1</httpclient5.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,7 +43,7 @@
 		<dependency>
 			<groupId>org.wiremock</groupId>
 			<artifactId>wiremock-standalone</artifactId>
-			<version>3.4.1</version>
+			<version>${wiremock-standalone.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
@@ -54,9 +56,8 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents.client5</groupId>
 			<artifactId>httpclient5</artifactId>
-			<version>5.3.1</version>
+			<version>${httpclient5.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -67,5 +68,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
