@@ -1,5 +1,6 @@
-# java-concurrency-training
-Atelier de formation autour de la programmation concurrente en java
+<h1 align="center">Bienvenue dans le projet java-concurrency-training 👋</h1>
+
+> Atelier de formation autour de la programmation concurrente en java.<br />
 
 ## Objectifs
 
@@ -9,7 +10,7 @@ Atelier de formation autour de la programmation concurrente en java
 - Quand en avons-nous besoin
 - Masteriser la programmation concurrente et asynchrone en java
 
-## Démonstrations et exercices
+### Démonstrations et exercices
 
 - Optimiser les temps de réponse d'une API
 - Optimiser le nombre d'appels concurrent
@@ -20,9 +21,21 @@ Atelier de formation autour de la programmation concurrente en java
 - Utilisation du profiler Intellij
     - Identification des tâches bloquantes
 
-## Tester les endpoints
+### Technologies
+
+Cette API est développée avec les technologies suivantes :
+
+- `Java 21 :` le langage
+
+- `SpringBoot 3.2 :` le cadre de développement.
+
+- `Wiremock :` <a href="https://wiremock.org/docs/">Documentation</a>
+
+## Getting started
+
+### Tester les endpoints
 - Démarrer Wiremock depuis src/test/java/fr/concurrency/training/StartWiremock
 - Démarrer l'application en mode dev
 
-## Tests d'intégration
+### Tests d'intégration
 Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.
