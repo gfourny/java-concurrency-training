@@ -36,7 +36,9 @@ class DBTest {
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:15-alpine"
     );
-    private final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
+    
+    //Valeur = spring.datasource.hikari.maximum-pool-size
+    private final ExecutorService executorService = Executors.newFixedThreadPool(1);
     @Autowired
     CustomerRepository customerRepository;
 
