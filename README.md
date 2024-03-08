@@ -9,6 +9,7 @@
 - Pourquoi en avons-nous besoin
 - Quand en avons-nous besoin
 - Masteriser la programmation concurrente et asynchrone en java
+- Les pièges des virtual threads
 
 ### Démonstrations et exercices
 
@@ -30,6 +31,10 @@ Cette API est développée avec les technologies suivantes :
 - `SpringBoot 3.2 :` le cadre de développement.
 
 - `Wiremock :` <a href="https://wiremock.org/docs/">Documentation</a>
+
+- `TestContainers`: <a href="https://testcontainers.com/">PostgreSQL conteneurisé</a>
+
+- `Instancio`: <a href="https://www.instancio.org/user-guide/">Générateur d'objets Java</a>
 
 ## Getting started
 
