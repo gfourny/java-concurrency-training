@@ -58,18 +58,6 @@ public class GduService {
                         .toList());
     }
 
-    /**
-     * Maintenant, on sait ce qu'il se cache derrière le parallelStream ou stream().parallel() --> <b>CommonForkJoinPool !</b><br/>
-     * À utiliser avec précaution --> On test et on mesure !
-     *
-     * @return {@link List} d'{@link UtilisateurRefUtAppWithFonction}
-     */
-    public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctionsMoreReadable() {
-        return apis.fetchUsers().parallelStream()
-                .map(this::getUtilisateurRefUtAppWithFonction)
-                .toList();
-    }
-
     private UtilisateurRefUtAppWithFonction getUtilisateurRefUtAppWithFonction(UtilisateurRefUtApp utilisateurRefUtApp) {
         log.info("récupération des fonctions pour l'utilisateur {}", utilisateurRefUtApp.nom());
         val fonctions = apis.fetchFonctionForUser(utilisateurRefUtApp.uid());

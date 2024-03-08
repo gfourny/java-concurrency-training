@@ -7,7 +7,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -73,22 +72,5 @@ public class GduController {
     @GetMapping("/utilisateurs/non-bloquant")
     public CompletableFuture<List<UtilisateurRefUtAppWithFonction>> getUsersNonBloquant() {
         return CompletableFuture.supplyAsync(gduService::retrieveUsersWithFonctions);
-    }
-
-    /**
-     * C'est tentant : Mais n'a aucune utilité ici <br/>
-     * Une méthode publique annotée d'Async est proxifiée par Spring pour spécifier que l'appelant n'a pas besoin d'attendre la réponse
-     * Ce qui n'est absolument pas notre cas ici.<br/>
-     * Je ne suis pas super fan de cette annotation, car on abstrait trop ce qui est fait derrière.<br/>
-     * Ni plus ni moins qu'un executorService.submit(()-> votreMéhtodePublic()), un peu overkill un pattern proxy pour ça.<br/>
-     * Cela peut être utile dans certains cas (écriture d'un log, d'un fichier) dont le succès ou l'échec importe peu
-     *
-     * @return {@link CompletableFuture}
-     * @see <a href="https://www.baeldung.com/spring-async">tuto baeldung</a>
-     */
-    @Async
-    @GetMapping("utilisateurs/async")
-    public CompletableFuture<List<UtilisateurRefUtAppWithFonction>> getUsersAsync() {
-        return gduService.retrieveUsersWithFonctionsOtherSolution();
     }
 }
