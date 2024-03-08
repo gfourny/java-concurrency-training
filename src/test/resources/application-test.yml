@@ -1,1 +1,10 @@
 baseUrl: http://localhost:${wiremock.server.port}
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 1
+      connection-timeout: 250
+  sql:
+    init:
+      mode: always
