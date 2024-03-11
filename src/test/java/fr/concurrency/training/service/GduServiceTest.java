@@ -5,21 +5,13 @@ import java.time.Duration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-
-import fr.concurrency.training.config.WiremockInitializer;
 
 import static org.awaitility.Awaitility.await;
 
 /**
  * @author gfourny
  */
-@SpringBootTest
-@ContextConfiguration(initializers = { WiremockInitializer.class })
-@ActiveProfiles("test")
-class GduServiceTest {
+class GduServiceTest extends AbastractITSpring {
 
     @Autowired
     private GduService gduService;
