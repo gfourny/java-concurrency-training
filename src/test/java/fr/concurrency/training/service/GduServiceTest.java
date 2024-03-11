@@ -5,21 +5,13 @@ import java.time.Duration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-
-import fr.concurrency.training.config.WiremockInitializer;
 
 import static org.awaitility.Awaitility.await;
 
 /**
  * @author gfourny
  */
-@SpringBootTest
-@ContextConfiguration(initializers = { WiremockInitializer.class })
-@ActiveProfiles("test")
-class GduServiceTest {
+class GduServiceTest extends AbastractITSpring {
 
     @Autowired
     private GduService gduService;
@@ -27,6 +19,6 @@ class GduServiceTest {
     @Test
     @DisplayName("Doit récupérer la liste des utilisateurs avec leur fonctions de manière concurrente")
     void should_retrieve_users_with_fonction_asynchronously() {
-        await().atMost(Duration.ofSeconds(3)).until(() -> gduService.retrieveUsersWithFonctions().size() == 3);
+        await().atMost(Duration.ofSeconds(3)).until(() -> gduService.retrieveUsersWithFonctionsSC().size() == 3);
     }
 }

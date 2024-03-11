@@ -2,6 +2,8 @@ package fr.concurrency.training.service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.StructuredTaskScope;
 
 import org.springframework.stereotype.Service;
 
@@ -56,6 +58,32 @@ public class GduService {
                 .thenApply(v -> futures.stream()
                         .map(CompletableFuture::join)
                         .toList());
+    }
+
+    /**
+     * Solution Java 23+ en utilisant la <b>Sructured Concurrency</b>.<br/>
+     *
+     * @return {@link List} d'{@link UtilisateurRefUtAppWithFonction}
+     */
+    public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctionsSC() {
+
+        val utilisateurRefUtApps = apis.fetchUsers();
+
+        try (val scope = new StructuredTaskScope.ShutdownOnFailure()) {
+
+            val utilisateurRefUtAppsWithFonctions = utilisateurRefUtApps.stream()
+                    .map(utilisateurRefUtApp -> scope.fork(() -> getUtilisateurRefUtAppWithFonction(utilisateurRefUtApp)))
+                    .toList();
+
+            scope.join().throwIfFailed();
+
+            return utilisateurRefUtAppsWithFonctions.stream()
+                    .map(StructuredTaskScope.Subtask::get)
+                    .toList();
+
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private UtilisateurRefUtAppWithFonction getUtilisateurRefUtAppWithFonction(UtilisateurRefUtApp utilisateurRefUtApp) {
