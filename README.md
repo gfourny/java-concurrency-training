@@ -45,4 +45,6 @@ Cette API est développée avec les technologies suivantes :
 - Démarrer l'application en mode dev
 
 ### Tests d'intégration
-Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.
+Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.<br/>
+Testcontainers est aussi utilisé pour travailler avec une base de données PostgreSQL.<br>
+Un conteneur proxy Toxiproxy est aussi présent afin de rajouter de la latence sur les appels à la base de données pour se rapprocher de la réalité.
