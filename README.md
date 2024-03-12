@@ -16,11 +16,11 @@
 - Optimiser les temps de réponse d'une API
 - Optimiser le nombre d'appels concurrent
 - Optimiser les resources allouées à l'application
-    - Réduction des pod sur GKE
-    - Temps de traitements optimisé
-    - Parallélisation des traitements asynchrones
+  - Réduction des pod sur GKE
+  - Temps de traitements optimisé
+  - Parallélisation des traitements asynchrones
 - Utilisation du profiler Intellij
-    - Identification des tâches bloquantes
+  - Identification des tâches bloquantes
 
 ### Technologies
 
@@ -32,9 +32,11 @@ Cette API est développée avec les technologies suivantes :
 
 - `Wiremock :` <a href="https://wiremock.org/docs/">Documentation</a>
 
-- `TestContainers`: <a href="https://testcontainers.com/">PostgreSQL conteneurisé</a>
+- `TestContainers :` <a href="https://testcontainers.com/">PostgreSQL conteneurisé</a>
 
-- `Instancio`: <a href="https://www.instancio.org/user-guide/">Générateur d'objets Java</a>
+- `Instancio :` <a href="https://www.instancio.org/user-guide/">Générateur d'objets Java</a>
+
+- `Toxiproxy :` <a href="https://github.com/Shopify/toxiproxy">Proxy utilisé avec Testcontainers permettant de rajouter de la latence / simuler des coupures réseau</a>
 
 ## Getting started
 
@@ -43,4 +45,6 @@ Cette API est développée avec les technologies suivantes :
 - Démarrer l'application en mode dev
 
 ### Tests d'intégration
-Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.
+Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.<br/>
+Testcontainers est aussi utilisé pour travailler avec une base de données PostgreSQL.<br>
+Un conteneur proxy Toxiproxy est aussi présent afin de rajouter de la latence sur les appels à la base de données pour se rapprocher de la réalité.
