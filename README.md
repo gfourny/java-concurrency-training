@@ -32,9 +32,11 @@ Cette API est développée avec les technologies suivantes :
 
 - `Wiremock :` <a href="https://wiremock.org/docs/">Documentation</a>
 
-- `TestContainers`: <a href="https://testcontainers.com/">PostgreSQL conteneurisé</a>
+- `TestContainers :` <a href="https://testcontainers.com/">PostgreSQL conteneurisé</a>
 
-- `Instancio`: <a href="https://www.instancio.org/user-guide/">Générateur d'objets Java</a>
+- `Instancio :` <a href="https://www.instancio.org/user-guide/">Générateur d'objets Java</a>
+
+- `Toxiproxy :` <a href="https://github.com/Shopify/toxiproxy">Proxy utilisé avec Testcontainers permettant de rajouter de la latence / simuler des coupures réseau</a>
 
 ## Getting started
 
