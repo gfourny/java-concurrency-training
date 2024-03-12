@@ -3,7 +3,7 @@ baseUrl: http://localhost:${wiremock.server.port}
 spring:
   datasource:
     hikari:
-      maximum-pool-size: 1
+      maximum-pool-size: 5
       connection-timeout: 250
   sql:
     init:

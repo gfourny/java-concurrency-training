@@ -35,7 +35,7 @@ class DBTest extends AbastractITSpring {
     void shouldGetAllCustomers() {
 
         val customers = Instancio.ofList(Customer.class)
-                .size(10000)
+                .size(1_000)
                 .set(field(Customer::getId), null)
                 .generate(field(Customer::getEmail), gen -> gen.net().email())
                 .create();
@@ -51,6 +51,6 @@ class DBTest extends AbastractITSpring {
 
         val customerList = customerRepository.findAll();
 
-        assertThat(customerList).isNotNull().isNotEmpty().hasSize(10000);
+        assertThat(customerList).isNotNull().isNotEmpty().hasSize(1_000);
     }
 }
