@@ -40,11 +40,13 @@ Cette API est développée avec les technologies suivantes :
 
 ## Getting started
 
-### Tester les endpoints
-- Démarrer Wiremock depuis src/test/java/fr/concurrency/training/StartWiremock
-- Démarrer l'application en mode dev
+### Démarrer l'application
+Pour lancer l'application en mode dev, exécuter la méthode main de la classe suivante :<br/>
+> src/test/java/fr/concurrency/training/StartTrainingApplication <br/>
+
+Cette classe permet de monter automatiquement l'environnement nécessaire : <br/>
+- Wiremock pour mocker les API REST
+- Conteneur PostgreSQL avec Testcontainer
 
 ### Tests d'intégration
-Lors de l'exécution des tests d'intégration, il n'y a pas besoin de démarrer Wiremock, il se lance automatiquement en mode embedded.<br/>
-Testcontainers est aussi utilisé pour travailler avec une base de données PostgreSQL.<br>
-Un conteneur proxy Toxiproxy est aussi présent afin de rajouter de la latence sur les appels à la base de données pour se rapprocher de la réalité.
+Un conteneur proxy Toxiproxy est présent afin de rajouter de la latence sur les appels à la base de données pour se rapprocher de la réalité.

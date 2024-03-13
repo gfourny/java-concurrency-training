@@ -1,4 +1,4 @@
-baseUrl: http://localhost:9999
+baseUrl: http://localhost:${wiremock.server.port}
 server:
   tomcat:
     threads:

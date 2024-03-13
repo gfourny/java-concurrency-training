@@ -18,7 +18,6 @@ public class TrainingApplication {
 
     @Bean
     public RestClient restClient(@Value("${baseUrl}") String baseUrl) {
-
         return RestClient.builder()
                 .requestFactory(new HttpComponentsClientHttpRequestFactory())
                 .baseUrl(baseUrl)
