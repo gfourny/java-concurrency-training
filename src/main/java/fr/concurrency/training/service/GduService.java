@@ -20,6 +20,14 @@ public class GduService {
 
     private final Apis apis;
 
+    /**
+     * Récupère la liste des utilisateurs avec leurs fonctions associées.<br/>
+     * Actuellement non optimisé car la liste des utilisateurs est traitée de manière <b>synchrone</b><br/>
+     * <b>TODO Modifier l'implémentation afin de paralléliser les appels de récupération des fonctions cf: <br/>
+     * {@link GduService#getUtilisateurRefUtAppWithFonction(UtilisateurRefUtApp)}</b><br/>
+     *
+     * @return {@link List} d'{@link UtilisateurRefUtAppWithFonction}
+     */
     public List<UtilisateurRefUtAppWithFonction> retrieveUsersWithFonctions() {
         log.info("run on {}", Thread.currentThread());
         val utilisateurRefUtApps = apis.fetchUsers();
@@ -29,6 +37,12 @@ public class GduService {
                 .toList();
     }
 
+    /**
+     * Récupère les fonctions d'un utilisateur
+     *
+     * @param utilisateurRefUtApp {@link UtilisateurRefUtApp}
+     * @return {@link UtilisateurRefUtAppWithFonction}
+     */
     private UtilisateurRefUtAppWithFonction getUtilisateurRefUtAppWithFonction(UtilisateurRefUtApp utilisateurRefUtApp) {
         log.info("récupération des fonctions pour l'utilisateur {}", utilisateurRefUtApp.nom());
         val fonctions = apis.fetchFonctionForUser(utilisateurRefUtApp.uid());
