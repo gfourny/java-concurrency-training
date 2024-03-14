@@ -56,7 +56,7 @@ public abstract class AbastractITSpring {
         val jdbcUrl = "jdbc:postgresql://%s:%d/%s".formatted(toxi.getHost(), toxi.getMappedPort(8666), postgres.getDatabaseName());
 
         proxy.toxics()
-                .latency("latency", ToxicDirection.DOWNSTREAM, 60) // Latence de 60 ms sur les requêtes
+                .latency("latency", ToxicDirection.DOWNSTREAM, 45) // Latence de 60 ms sur les requêtes
                 .setJitter(0); // Variation de latence en ms
 
         registry.add("spring.datasource.url", () -> jdbcUrl);

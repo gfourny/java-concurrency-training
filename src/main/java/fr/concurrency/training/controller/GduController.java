@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.concurrency.training.model.gdu.UtilisateurRefUtAppWithFonction;
 import fr.concurrency.training.service.GduService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author gfourny
@@ -22,7 +21,6 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/api/gdu")
 @RequiredArgsConstructor
-@Slf4j
 public class GduController {
 
     private final GduService gduService;

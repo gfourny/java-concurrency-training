@@ -24,7 +24,7 @@ class DillyServiceTest extends AbastractITSpring {
     void should_return_dilly_less_than_two_seconds() {
         await().atMost(Duration.ofMillis(1700)).until(() ->
                 {
-                    Dilly dilly = dillyService.commandWithVirtualThreadInProperty();
+                    Dilly dilly = dillyService.commandWithCF();
                     return !isNull(dilly) && !isNull(dilly.beer()) && !isNull(dilly.vodka());
                 }
         );

@@ -3,7 +3,15 @@ server:
   tomcat:
     threads:
       max: 1
-#spring:
+      
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 250
+  sql:
+    init:
+      mode: always
 #  threads:
 #    virtual:
 #      enabled: true
