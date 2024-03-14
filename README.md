@@ -13,6 +13,8 @@
 
 ### Démonstrations et exercices 🎬
 
+[Déroulé de l'atelier](doc/training.md) 📘
+
 - Optimiser les temps de réponse d'une API
 - Optimiser le nombre d'appels concurrent
 - Optimiser les resources allouées à l'application
