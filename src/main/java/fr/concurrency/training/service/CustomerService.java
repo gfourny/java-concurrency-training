@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import fr.concurrency.training.model.Customer;
 import fr.concurrency.training.repository.CustomerRepository;
-import lombok.RequiredArgsConstructor;
 
 import static org.instancio.Select.field;
 
@@ -18,11 +17,14 @@ import static org.instancio.Select.field;
  * @author gfourny
  */
 @Service
-@RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
+
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     /**
      * FIXME: corriger l'implémentation suivante pour ne plus avoir des erreurs lors de la création des utilisateurs en base
