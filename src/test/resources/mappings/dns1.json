@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/dns1"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody":
+    {
+      "city": "Bruxelles"
+    },
+    "fixedDelayMilliseconds": 110,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

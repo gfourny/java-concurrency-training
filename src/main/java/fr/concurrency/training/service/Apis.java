@@ -9,6 +9,7 @@ import org.springframework.web.client.RestClient;
 import fr.concurrency.training.model.Beer;
 import fr.concurrency.training.model.Preferences;
 import fr.concurrency.training.model.Vodka;
+import fr.concurrency.training.model.dns.Dns;
 import fr.concurrency.training.model.gdu.Fonction;
 import fr.concurrency.training.model.gdu.UtilisateurRefUtApp;
 import lombok.RequiredArgsConstructor;
@@ -57,5 +58,12 @@ public class Apis {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {
                 });
+    }
+    
+    public Dns fetchDns(String id){
+        return restClient.get()
+                .uri(STR."/\{id}")
+                .retrieve()
+                .body(Dns.class);
     }
 }

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/dns2"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody":
+    {
+      "city": "Paris"
+    },
+    "fixedDelayMilliseconds": 40,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

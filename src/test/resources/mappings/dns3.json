@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/dns3"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody":
+    {
+      "city": "Madrid"
+    },
+    "fixedDelayMilliseconds": 150,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
