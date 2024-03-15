@@ -75,6 +75,7 @@ Un conteneur proxy Toxiproxy est présent afin de rajouter de la latence sur les
 ## Littérature - liens utiles 📄
 
 - https://dev.java/learn/new-features/virtual-threads/
+- <a href="https://docs.oracle.com/en/java/javase/21/core/structured-concurrency.html#GUID-AA992944-AABA-4CBC-8039-DE5E17DE86DB">Documentation Structured Concurrency</a>
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ExecutorService.html
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executors.html
