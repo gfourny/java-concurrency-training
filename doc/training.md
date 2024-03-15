@@ -1,4 +1,4 @@
-<h1 align="center">Déroulé de la formation 🏁</h1>
+<h1 align="center">Déroulé de l'atelier 🏁</h1>
 
 ## Programmation asynchrone 🕰
 
@@ -161,11 +161,30 @@ Le principal avantage de ce paradigme est qu'il est <b>natif</b> en Java !<br/>
 <b>Les API disponibles nous permettent donc d'optimiser nos ressources réservées sur un cluster et de consommer peu de CPU et de mémoire</b>.
 
 ## Ordre des démos 🐱‍👤
-> - DillyController
->   - DillyService 🔨
-> - GduController
->   - GduService 🕖
-> - DnsController
->   - DnsService 🏍
-> - CustomerController
->   - CustomerService 💥
+
+> Dilly 🔨
+> - L'API exposée par DillyController met plusieurs secondes à répondre.
+> - Analyser et modifier l'implémentation de DillyService pour améliorer le temps de réponse.
+>   - CompletableFuture 💪🏻
+>   - Java 21 VirtualThread ✍🏻
+>   - Preview Java 21 Structured Concurrency 🤩
+
+> Gdu - Référentiel d'utilisateurs 🕖
+> - Au fur et à mesure que le référentiel s'agrandit, les temps de réponses deviennent exponentielle.
+> - Analyser et modifier l'implémentation de GduService afin de maîtriser les temps de réponse.
+>   - CompletableFuture 👨🏻‍💻
+>   - Preview Java 21 Structured Concurrency 🤔
+
+> DNS 🏍
+> - L'API exposée par DnsController permet de récupérer le DNS ayant les meilleurs temps de réponse.
+> - Pour autant, les temps de réponses de cette API sont discutables. Les appels aux DNS sont effectués de manière synchrone.
+> - Analyser et modifier l'implémentation de DnsService afin de ne traiter que la réponse du DNS le plus performant.
+>   - CompletableFuture 🤔
+>   - Preview Java 21 Structured Concurrency 🤩
+
+> Customer - Injection en masse en Base de Données 💥
+> - L'API exposée par CustomerController ne fonctionne pas. Lors d'une requête, de nombreuses exceptions surgissent dans la stack 😲
+> - Ce problème est apparu suite à la montée de version en Java 21 en utilisant les VirtualThread ! 😪
+> - Comprendre l'origine du problème et adapter l'implémentation pour le résoudre tout en continuant de paralléliser les appels.
+>   - VirtualThread 🕵🏻‍♀️
+>   - ExecutorService 🛂
