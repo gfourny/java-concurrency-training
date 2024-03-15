@@ -160,7 +160,7 @@ Il est donc nécessaire de contrôler le nombre de threads qui sont lancés dans
 ✅ Ne bloque pas le thread principal tant que join() ou get() ne sont pas appelées <br/>
 ❌ Peut être compliquée à prendre en main (API riche)
 
-## Nouvel ordre 👨‍✈️
+## Nouvel ordre 🚀
 
 ### Java 21 VirtualThread 🌊
 ````java
