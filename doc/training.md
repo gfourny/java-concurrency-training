@@ -161,10 +161,11 @@ Le principal avantage de ce paradigme est qu'il est <b>natif</b> en Java !<br/>
 <b>Les API disponibles nous permettent donc d'optimiser nos ressources réservées sur un cluster et de consommer peu de CPU et de mémoire</b>.
 
 ## Ordre des démos 🐱‍👤
-> - DillyController<br/>
+> - DillyController
 >   - DillyService 🔨
 > - GduController
 >   - GduService 🕖
-> - DnsService 🏍
+> - DnsController
+>   - DnsService 🏍
 > - CustomerController
 >   - CustomerService 💥
