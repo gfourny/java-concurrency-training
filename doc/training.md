@@ -42,6 +42,23 @@ sequenceDiagram
     OT-->>MT: Task completed !
     deactivate OT
 ```
+
+```mermaid
+sequenceDiagram
+    participant MT as Main Thread
+    participant OT as Other Thread
+    participant OT2 as Other Thread 2
+    MT->>OT: Async task submitted
+    activate OT
+    Note right of OT: Treat async task
+    MT ->> OT2: Async task submitted
+    activate OT2
+    Note right of OT2: Treat another concurrent task
+    OT-->>MT: Task completed !
+    deactivate OT
+    OT2 -->> MT: Task completed
+    deactivate OT2
+```
 ## Thread ? 🤔
 
 Que l'on parle de Thread OS, Thread Platform, Carrier Thread, il signifie tous la même chose !<br/>
@@ -72,6 +89,7 @@ Il est donc nécessaire de contrôler le nombre de threads qui sont lancés dans
 ````
 ❌ Gaspillage: crée de nouveaux threads pour chaque demande<br/>
 ❌ Etat des mutations : risque de bugs / blocages protégeant les mutations (deadlocks)<br/>
+❌ Risque de Out of Memory<br/>
 
 #### Java 5 ExecutorService 😃
 ````java
