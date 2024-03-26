@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import fr.concurrency.training.model.Customer;
 import fr.concurrency.training.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.val;
 
 import static org.instancio.Select.field;
 
@@ -34,7 +33,7 @@ public class CustomerService {
         /*
          * Ne pas modifier la création d'utilisateur
          * */
-        val customers = Instancio.ofList(Customer.class)
+        var customers = Instancio.ofList(Customer.class)
                 .size(1_000)
                 .set(field(Customer::getId), null)
                 .generate(field(Customer::getEmail), gen -> gen.net().email())

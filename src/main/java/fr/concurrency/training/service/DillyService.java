@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import fr.concurrency.training.model.Dilly;
 import lombok.RequiredArgsConstructor;
-import lombok.val;
 
 /**
  * @author gfourny
@@ -22,9 +21,9 @@ public class DillyService {
      */
     public Dilly command() {
 
-        val preferences = apis.fetchPreferences();
-        val beer = apis.fetchBeer(preferences);
-        val vodka = apis.fetchVodka();
+        var preferences = apis.fetchPreferences();
+        var beer = apis.fetchBeer(preferences);
+        var vodka = apis.fetchVodka();
 
         return new Dilly(beer, vodka);
     }

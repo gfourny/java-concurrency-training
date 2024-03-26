@@ -17,7 +17,6 @@ import org.testcontainers.lifecycle.Startables;
 import eu.rekawek.toxiproxy.ToxiproxyClient;
 import eu.rekawek.toxiproxy.model.ToxicDirection;
 import fr.concurrency.training.config.WiremockInitializer;
-import lombok.val;
 
 /**
  * @author gfourny
@@ -51,9 +50,9 @@ public abstract class AbastractITSpring {
 
         Startables.deepStart(postgres, toxi).join();
 
-        val toxiproxyClient = new ToxiproxyClient(toxi.getHost(), toxi.getControlPort());
-        val proxy = toxiproxyClient.createProxy("postgres", "0.0.0.0:8666", "postgres:5432");
-        val jdbcUrl = "jdbc:postgresql://%s:%d/%s".formatted(toxi.getHost(), toxi.getMappedPort(8666), postgres.getDatabaseName());
+        var toxiproxyClient = new ToxiproxyClient(toxi.getHost(), toxi.getControlPort());
+        var proxy = toxiproxyClient.createProxy("postgres", "0.0.0.0:8666", "postgres:5432");
+        var jdbcUrl = "jdbc:postgresql://%s:%d/%s".formatted(toxi.getHost(), toxi.getMappedPort(8666), postgres.getDatabaseName());
 
         proxy.toxics()
                 .latency("latency", ToxicDirection.DOWNSTREAM, 45) // Latence de 60 ms sur les requêtes

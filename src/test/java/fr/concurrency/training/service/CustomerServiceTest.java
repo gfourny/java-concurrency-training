@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.concurrency.training.repository.CustomerRepository;
-import lombok.val;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,7 +27,7 @@ class CustomerServiceTest extends AbastractITSpring {
     @Test
     @DisplayName("Doit retourner la liste des utilisateurs")
     void testCreateCustomers() {
-        val customers = customerService.createCustomers();
+        var customers = customerService.createCustomers();
         assertThat(customers)
                 .isNotNull()
                 .isNotEmpty()
