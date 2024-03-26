@@ -12,7 +12,6 @@ import fr.concurrency.training.model.Dilly;
 import fr.concurrency.training.model.Preferences;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 
 /**
  * @author gfourny
@@ -32,9 +31,9 @@ public class DillyService {
      * @return {@link Dilly}
      */
     public Dilly command() {
-        val preferences = apis.fetchPreferences();
-        val beer = apis.fetchBeer(preferences);
-        val vodka = apis.fetchVodka();
+        var preferences = apis.fetchPreferences();
+        var beer = apis.fetchBeer(preferences);
+        var vodka = apis.fetchVodka();
 
         return new Dilly(beer, vodka);
     }
@@ -78,11 +77,11 @@ public class DillyService {
      * @return {@link Dilly}
      */
     public Dilly commandWithVirtualThreadExecutor() {
-        try (val executors = Executors.newVirtualThreadPerTaskExecutor()) {
+        try (var executors = Executors.newVirtualThreadPerTaskExecutor()) {
 
-            val preferencesFuture = executors.submit(apis::fetchPreferences);
-            val beerFuture = executors.submit(() -> apis.fetchBeer(preferencesFuture.get()));
-            val vodkaFuture = executors.submit(apis::fetchVodka);
+            var preferencesFuture = executors.submit(apis::fetchPreferences);
+            var beerFuture = executors.submit(() -> apis.fetchBeer(preferencesFuture.get()));
+            var vodkaFuture = executors.submit(apis::fetchVodka);
 
             return new Dilly(beerFuture.get(), vodkaFuture.get());
         } catch (ExecutionException | InterruptedException e) {
@@ -102,14 +101,14 @@ public class DillyService {
         //En preview Java 21 et 22
 
         Future<Preferences> preferencesFuture;
-        try (val executorService = Executors.newVirtualThreadPerTaskExecutor()) {
+        try (var executorService = Executors.newVirtualThreadPerTaskExecutor()) {
             preferencesFuture = executorService.submit(apis::fetchPreferences);
         }
 
-        try (val scope = new StructuredTaskScope.ShutdownOnFailure()) {
+        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
 
-            val beerTask = scope.fork(() -> apis.fetchBeer(preferencesFuture.get()));
-            val vodkaTask = scope.fork(apis::fetchVodka);
+            var beerTask = scope.fork(() -> apis.fetchBeer(preferencesFuture.get()));
+            var vodkaTask = scope.fork(apis::fetchVodka);
 
             scope.join().throwIfFailed();
 
@@ -126,9 +125,9 @@ public class DillyService {
      * @return {@link Dilly}
      */
     public Dilly commandWithVirtualThreadInProperty() {
-        val preferences = apis.fetchPreferences();
-        val beer = apis.fetchBeer(preferences);
-        val vodka = apis.fetchVodka();
+        var preferences = apis.fetchPreferences();
+        var beer = apis.fetchBeer(preferences);
+        var vodka = apis.fetchVodka();
 
         return new Dilly(beer, vodka);
     }

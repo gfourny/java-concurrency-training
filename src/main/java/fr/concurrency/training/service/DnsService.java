@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import fr.concurrency.training.model.dns.Dns;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 
 /**
  * @author gfourny
@@ -55,7 +54,7 @@ public class DnsService {
      * @return {@link Dns}
      */
     public Dns obtainFastestDnsWithSC() {
-        try (val scope = new StructuredTaskScope.ShutdownOnSuccess<Dns>()) {
+        try (var scope = new StructuredTaskScope.ShutdownOnSuccess<Dns>()) {
 
             scope.fork(() -> apis.fetchDns(DNS_1));
             scope.fork(() -> apis.fetchDns(DNS_2));

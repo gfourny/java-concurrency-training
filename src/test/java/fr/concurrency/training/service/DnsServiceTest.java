@@ -4,8 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import lombok.val;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -20,7 +18,7 @@ class DnsServiceTest extends AbastractITSpring {
     @Test
     @DisplayName("Doit retourner le DNS2")
     void should_return_the_DNS2() {
-        val dns = dnsService.obtainFastestDns();
+        var dns = dnsService.obtainFastestDns();
 
         assertAll(() -> {
             assertThat(dns).isNotNull();

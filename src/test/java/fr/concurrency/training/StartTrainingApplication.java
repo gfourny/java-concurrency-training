@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import com.github.tomakehurst.wiremock.WireMockServer;
 
 import fr.concurrency.training.config.ContainersConfig;
-import lombok.val;
 
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
@@ -17,16 +16,16 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 public class StartTrainingApplication {
 
     public static void main(String[] args) {
-        WireMockServer wm = new WireMockServer(options()
+        var wm = new WireMockServer(options()
                 .dynamicPort()
                 .asynchronousResponseEnabled(true)
                 .asynchronousResponseThreads(200)
         );
         wm.start();
 
-        val serverPort = String.format("--wiremock.server.port=%s", wm.port());
+        var serverPort = String.format("--wiremock.server.port=%s", wm.port());
 
-        val isPortConfigured = Arrays.stream(args).noneMatch(s -> s.contains("wiremock.server.port"));
+        var isPortConfigured = Arrays.stream(args).noneMatch(s -> s.contains("wiremock.server.port"));
 
         if (isPortConfigured) {
             args = appendTo(args, serverPort);

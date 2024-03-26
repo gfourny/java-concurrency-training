@@ -17,7 +17,7 @@ public class WiremockInitializer implements ApplicationContextInitializer<Config
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
-        WireMockServer wireMockServer = new WireMockServer(options().dynamicPort());
+        var wireMockServer = new WireMockServer(options().dynamicPort());
         wireMockServer.start();
         configureFor(wireMockServer.port());
         System.setProperty("wiremock.server.port", String.valueOf(wireMockServer.port()));
