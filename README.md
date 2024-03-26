@@ -13,7 +13,7 @@
 
 ### Démonstrations et exercices 🎬
 
-[Documentation](doc/training.md) 📘
+[Documentation de l'atelier](doc/training.md) 📘
 
 - Optimiser les temps de réponse d'une API
 - Optimiser le nombre d'appels concurrent
@@ -113,5 +113,5 @@ Un conteneur proxy Toxiproxy est présent afin de rajouter de la latence sur les
 - https://www.baeldung.com/java-completablefuture
 - https://www.baeldung.com/java-completablefuture-allof-join
 - https://www.baeldung.com/java-executor-service-tutorial
-- <a href="https://www.youtube.com/watch?v=AQjTUxjMg78&list=PLuZ_sYdawLiUHU4E1i5RrFsRN_lQcgPwT&index=9"> 🎦 DevFest Nantes - José Paumard</a>
+- <a href="https://www.youtube.com/watch?v=AQjTUxjMg78&list=PLuZ_sYdawLiUHU4E1i5RrFsRN_lQcgPwT&index=9"> 🎦 DevFest Nantes - José Paumard - Loom</a>
 - <a href="https://www.youtube.com/watch?v=wx7t69DylsI"> 🎦 Devoxx FR - José Paumard / Rémi Forax - Loom, Structured Concurrency</a>

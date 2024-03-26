@@ -1,4 +1,4 @@
-<h1 align="center">Déroulé de l'atelier 🏁</h1>
+<h1 align="center">Documentation 📘</h1>
 
 ## Pourquoi écrire du code concurrent ❓
 Ce paradigme de programmation est bien connu des développeurs front.<br/>
