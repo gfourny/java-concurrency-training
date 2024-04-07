@@ -1,0 +1,14 @@
+### Command a Dilly
+GET http://localhost:8080/api/dilly
+
+### Obtain Fastest DNS
+
+GET http://localhost:8080/api/dns
+
+### Retreive all users with their functions
+
+GET http://localhost:8080/api/gdu/utilisateurs
+
+### Insert many random customers
+
+POST http://localhost:8080/api/customers
