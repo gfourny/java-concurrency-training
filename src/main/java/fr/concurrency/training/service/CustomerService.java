@@ -49,6 +49,9 @@ public class CustomerService {
                 .generate(field(Customer::getEmail), gen -> gen.net().email())
                 .create();
 
+        /*
+         * La structure doit rester la même, par démonstration, on n'utilise pas la méthode {@link CustomerRepository#saveAll(Iterable)}
+         * */
         customers.stream()
                 .map(this::saveCustomer)
                 .toList()
